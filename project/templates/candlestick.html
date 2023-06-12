@@ -1,0 +1,25 @@
+{#project/templataes/index.html#}
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-lg-13 mx-auto my-5">
+                <div class="card shadow border">
+                    <div class="card-body d-flex flex-column">
+                        <div class="text-center">
+                            <h1>Welcome to the Binance report!</h1>
+                        </div>
+                        <div id="chart"></div>
+                        <script>
+                            var graphs = {{ graphJSON | safe }};
+                            Plotly.plot('chart', graphs, {});
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

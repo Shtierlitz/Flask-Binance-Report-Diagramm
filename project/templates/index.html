@@ -1,24 +1,42 @@
 {#project/templataes/index.html#}
 
 {% extends 'base.html' %}
-{% block mainmenu %}
-    <h2 style="text-align: center; color: white">{{ title }}</h2>
-{% endblock %}
+
 
 {% block content %}
     <div class="container mb-5">
         <div class="row">
-            <div class="col-lg-13 mx-auto my-5">
+            <div class="col-lg-8 mx-auto my-5">
                 <div class="card shadow border">
                     <div class="card-body d-flex flex-column">
-                        <div class="text-center">
+                        <div class="text-center my-5">
                             <h1>Welcome to the Binance report!</h1>
                         </div>
-                        <div id="chart"></div>
-                        <script>
-                            var graphs = {{ graphJSON | safe }};
-                            Plotly.plot('chart', graphs, {});
-                        </script>
+                        <div class="">
+                            You can choose the type of report you want or view a pie chart for several quotes using the
+                            links below.
+                            If the link is not available, reinitialize the project to get the necessary data according
+                            to
+                            the readme.
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table" style="border-collapse:collapse;">
+                                <tr>
+                                    <th><a href="{{ url_for('diagrams.candlestick_diagram', file_name='BTCUSDT_1h') }}">BTCUSDT
+                                        1h</a></th>
+                                    <th><a href="{{ url_for('diagrams.candlestick_diagram', file_name='BTCUSDT_4h') }}">BTCUSDT
+                                        4h</a></th>
+                                    <th><a href="{{ url_for('diagrams.candlestick_diagram', file_name='BTCUSDT_1d') }}">BTCUSDT
+                                        1d</a></th>
+                                    <th><a href="{{ url_for('diagrams.candlestick_diagram', file_name='ETHUSDT_1h') }}">ETHUSDT
+                                        1h</a></th>
+                                    <th><a href="{{ url_for('diagrams.candlestick_diagram', file_name='ETHUSDT_4h') }}">ETHUSDT
+                                        4h</a></th>
+                                    <th><a href="{{ url_for('diagrams.candlestick_diagram', file_name='ETHUSDT_1d') }}">ETHUSDT
+                                        1d</a></th>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
