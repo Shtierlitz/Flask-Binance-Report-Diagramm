@@ -1,11 +1,18 @@
+# project/utils.py
+import os
 
+import pandas as pd
+import plotly.graph_objects as go
 
-def read_file(file_path: str) -> dict[str, dict]:
-    res = {}
-    with open(file_path, 'r', encoding="UTF-8") as f:
+base_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(base_dir, 'data', 'BTCUSDT_4h.csv')
 
-        for i, line in enumerate(f.read().split(' ')[1:]):
-            res.update({i:[line]})
-        print(res)
+df = pd.read_csv(file_path)
 
-read_file("./data/BTCUSDT_4h.csv")
+fig = go.Figure(data=[go.Candlestick(x=df['date'],
+                open=df['open'],
+                high=df['high'],
+                low=df['low'],
+                close=df['close'])])
+
+fig.update_layout(xaxis_rangeslider_visible=False)

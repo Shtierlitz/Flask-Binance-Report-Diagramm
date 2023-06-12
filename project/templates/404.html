@@ -1,0 +1,23 @@
+{#project/templates/404.html#}
+
+{% extends 'base.html' %}
+{% block mainmenu %}
+    <h2 style="text-align: center; color: white">{{ title }}</h2>
+{% endblock %}
+{% block content %}
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-lg-13 mx-auto my-5">
+                <div class="card shadow border">
+                    <div class="card-body d-flex flex-column">
+                        <div class="text-center">
+                            <h1>Page Not Found</h1>
+                            <p>What you were looking for is just not there.
+                            <p><a href="/">Return to main page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

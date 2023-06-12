@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{{ url_for('static', filename='images/money.ico') }}" type="image/vnd.microsoft.icon"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet"/>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>{{title}}</title>
+</head>
+<body class="body-image">
+
+{% block mainmenu %}
+<h2 style="text-align: center; color: white">{{title}}</h2>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+
+</body>
+</html>
