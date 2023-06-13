@@ -105,15 +105,15 @@ flask run
 Now you should be able to see these pages:  
 http://127.0.0.1:5000/
 
-![Star_page](project/static/images/star_page.png)
+![Star_page](readme_images/star_page.png)
 
 http://127.0.0.1:5000/btc_usdt/BTCUSDT_4h/
 
-![Candlestic chart](project/static/images/candlestic.png)
+![Candlestic chart](readme_images/candlestic.png)
 
 http://127.0.0.1:5000/market_caps/
 
-![Pie chart](project/static/images/pie_chart.png)
+![Pie chart](readme_images/pie_chart.png)
 
 
 # Sources
