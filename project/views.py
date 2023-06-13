@@ -11,7 +11,7 @@ report_bp = Blueprint('diagrams', __name__)
 error_bp = Blueprint('errors', __name__)
 
 
-@report_bp.route('/btc_usdt/<string:file_name>/')
+@report_bp.route('/<string:file_name>/')
 def candlestick_diagram(file_name):
     base_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(base_dir, 'data', f'{file_name}.csv')
