@@ -1,18 +1,25 @@
 # project/celery_maker.py
+import json
+import os
 
 from celery import Celery
 from datetime import timedelta
 
 celery = Celery(__name__, broker='redis://localhost:6379/0', backend='redis://localhost:6379/0')
-celery.conf.beat_schedule = {
-        'collect_data_every_minute': {
-            'task': 'project.tasks.task_collect_data',
-            'schedule': timedelta(seconds=30),  # запуск каждую минуту
-            # Здесь вы можете передать аргументы в вашу задачу, если они необходимы
-            'args': ('hour', '1', '1h')  # замените на ваши аргументы
-        },
-    }
 
+base_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(base_dir, 'params.json')
+with open(file_path, 'r') as f:
+    params = json.load(f)
+
+
+celery.conf.beat_schedule = {
+    'collect_data_from_binance': {
+        'task': 'project.tasks.task_collect_data',
+        'schedule': timedelta(seconds=int(params['update_interval'])),
+        'args': (params['period'], params['num'], params['interval'])
+    },
+}
 
 def init_celery(app):
     celery.conf.broker_url = app.config['CELERY_BROKER_URL']

@@ -1,9 +1,11 @@
 # project/app.py
+import json
+
 from flask import Flask
 from peewee import SqliteDatabase
 from project.models import data_base
 from project.views import report_bp, error_bp
-from project.celery_maker import celery, init_celery
+from project.celery_maker import celery
 from project.tasks import task_collect_data
 
 
@@ -18,9 +20,8 @@ def create_app():
     db_sq = SqliteDatabase(app.config['DATA_BASE'])
     data_base.initialize(db_sq)
 
-    init_celery(app)
-
-    task_collect_data.delay('hour', 1, '1h')
+    # clear all tasks
+    celery.control.purge()
 
     return app
 
