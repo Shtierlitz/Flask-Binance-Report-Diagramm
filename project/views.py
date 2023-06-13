@@ -31,7 +31,7 @@ def candlestick_diagram(file_name):
         'graphJSON': graph_json
     }
 
-    return render_template('candlestick.html', title="Diagram", context=context, interval=file_name)
+    return render_template('candlestick.html', title="Diagram", context=context, interval=file_name[:-3])
 
 
 @report_bp.route('/market_caps/')
