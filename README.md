@@ -68,7 +68,7 @@ python get_and_create_data.py --period "week" --num "1" --interval "4h" --update
 Where:  
 --period is a day, week, month, or year.  
 --num is the number of days, weeks, months, years.  
---interval is pre-market period
+--interval is pre-market period  
 --update_interval is how often information will be updated.  
 
 After the executed command, the `binance.db` file should appear in the `project/` folder 
