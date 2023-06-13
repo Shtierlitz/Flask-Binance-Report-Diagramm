@@ -118,11 +118,11 @@ http://127.0.0.1:5000/market_caps/
 
 # Sources
 
-Flask - https://flask.palletsprojects.com/en/2.3.x/
-peewee - http://docs.peewee-orm.com/en/latest/
-plotly - https://plotly.com/python/
-pandas - https://pandas.pydata.org/docs/user_guide/index.html#user-guide
-celery - https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html
+Flask - https://flask.palletsprojects.com/en/2.3.x/  
+peewee - http://docs.peewee-orm.com/en/latest/  
+plotly - https://plotly.com/python/  
+pandas - https://pandas.pydata.org/docs/user_guide/index.html#user-guide  
+celery - https://docs.celeryq.dev/en/stable/userguide/periodic-tasks.html  
 
 
 
