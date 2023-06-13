@@ -18,10 +18,10 @@ Download the repository with this command:
 git clone https://github.com/Shtierlitz/Flask-Binance-Report-Diagramm.git
 ```
 
-## Register at https://www.binance.com/
-### You will need to go through the authentication procedure, put some money into the account and generate your own API keys.
+## Register at https://www.binance.com/ (not necessary)
+### If you are going to modify the functionality so that it can perform commercial transactions, you will need to go through the authentication procedure, put some money into the account and generate your own API keys.
 
-## Create Files
+## Create Files 
 You will need to create `.env` file and place it in the root of the project.
 ```bash
 project/.env
@@ -29,9 +29,9 @@ project/.env
 
 ### Required contents of the .env file:
 ```python
-SECRET_KEY='<your SECRET key>'  
-API_KEY="<API_KEY>"  
-SECRET_KEY="<SECRET_KEY>"  
+SECRET_KEY='<your SECRET key>'  (necessary)
+API_KEY="<API_KEY>"  (not necessary)
+SECRET_KEY="<SECRET_KEY>"  (not necessary)
 ```
 # WARNING!
 ## In no case do not add keys in any other place than .env and do not use where they can get into the public network. This can lead to hackers using your keys and being able to conduct any transactions on your account without your knowledge on your behalf.
