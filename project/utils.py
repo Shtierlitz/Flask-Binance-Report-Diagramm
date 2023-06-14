@@ -50,8 +50,10 @@ def convert_interval_to_seconds(interval):
         raise ValueError("Update interval must be 2 letters only")
 
     if unit not in params:
-        raise ValueError(f"Unknown symbols in update interval {interval}!\n"
-                         f"Must be like: 1h or 3d for example.")
+        raise ValueError(
+            f"Unknown symbols in update interval {interval}!\n"
+            f"Must be like: 1h or 3d for example."
+        )
     if unit == 'm':
         return number * 60
     elif unit == 'h':

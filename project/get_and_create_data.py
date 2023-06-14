@@ -45,7 +45,8 @@ def collect_data(period, num, interval):
     start_date = f"{num} {period} ago UTC"
     end_date = "now UTC"
 
-    symbols = ["BTCUSDT", "ETHUSDT", "AMBUSDT", "ADAUSDT", "DOGEUSDT", "ATOMUSDT", "ARBUSDT", "DOTUSDT", "ALPHAUSDT", "INJUSDT"]
+    symbols = ["BTCUSDT", "ETHUSDT", "AMBUSDT", "ADAUSDT", "DOGEUSDT", "ATOMUSDT", "ARBUSDT", "DOTUSDT", "ALPHAUSDT",
+               "INJUSDT"]
 
     for symbol in symbols:
         bars = get_binance_bars(symbol, interval, start_date, end_date)
@@ -86,5 +87,6 @@ if __name__ == "__main__":
             }, f)
     else:
         print(
-            'You must input arguments properly. Example: python get_and_create_data.py --period "week" --num "1" --interval "4h" --update_interval "1h"'
+            'You must input arguments properly. Example: '
+            'python get_and_create_data.py --period "week" --num "1" --interval "4h" --update_interval "1h"'
         )
