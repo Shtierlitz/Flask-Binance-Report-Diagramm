@@ -16,7 +16,7 @@ def candlestick_diagram(file_name):
     base_dir = os.path.dirname(os.path.abspath(__file__))
     file_path = os.path.join(base_dir, 'data', f'{file_name}.csv')
     if not os.path.exists(file_path):
-        abort(404)
+        abort(500)
     fig = create_graph(file_path)
     with open('params.json', 'r') as f:
         params = json.load(f)
@@ -61,3 +61,7 @@ def start_page():
 @error_bp.app_errorhandler(404)
 def handle_404(err):
     return render_template('404.html'), 404
+
+@error_bp.app_errorhandler(500)
+def handle_500(err):
+    return render_template('500.html'), 500

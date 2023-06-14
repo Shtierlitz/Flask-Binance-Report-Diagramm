@@ -1,0 +1,23 @@
+{#project/templates/500.html#}
+
+{% extends 'base.html' %}
+{% block mainmenu %}
+    <h2 style="text-align: center; color: white">{{ title }}</h2>
+{% endblock %}
+{% block content %}
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-lg-13 mx-auto my-5">
+                <div class="card shadow border">
+                    <div class="card-body d-flex flex-column">
+                        <div class="text-center">
+                            <h1>Server error!</h1>
+                            <p>It seems you didn't read Readme.md well :)
+                            <p><a href="/">Return to main page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
