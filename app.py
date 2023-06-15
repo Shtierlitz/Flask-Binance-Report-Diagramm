@@ -1,17 +1,14 @@
 # project/app.py
-import json
 
 from flask import Flask
 from peewee import SqliteDatabase
 from project.models import data_base
 from project.views import report_bp, error_bp
 from project.celery_maker import celery
-from project.tasks import task_collect_data
 
 
 def create_app():
     app = Flask(__name__, template_folder='project/templates', static_folder='project/static')
-
 
     app.config.from_pyfile("settings.py")
     app.config['TEMPLATES_AUTO_RELOAD'] = True

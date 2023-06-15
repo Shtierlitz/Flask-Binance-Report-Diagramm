@@ -5,10 +5,8 @@ import argparse
 from peewee import SqliteDatabase
 import json  # Add this import
 
-
 from project.models import OriginReport, data_base
 from project.utils import convert_interval_to_seconds
-
 
 # API и секретный ключ
 api_key = os.environ.get("API_KEY")
@@ -62,16 +60,18 @@ def collect_data(period, num, interval):
 
 
 if __name__ == "__main__":
-    init_db('binance.db')
     parser = argparse.ArgumentParser()
     parser.add_argument('--period', dest="period", help="Input day or week or year ago")
     parser.add_argument('--num', dest="num", help="Input number of day or week or year ago")
     parser.add_argument('--interval', dest="interval", help="Input interval of report. Example: 1d, 4h, 1h")
-    parser.add_argument('--update_interval', dest="update_interval",
-                        help="Input interval for data updating. Example: 1d, 4h, 1w")
+    parser.add_argument(
+        '--update_interval', dest="update_interval",
+        help="Input interval for data updating. Example: 1d, 4h, 1w"
+    )
     args = parser.parse_args()
 
     if args.period and args.num and args.interval and args.update_interval:
+        init_db('binance.db')
         collect_data(args.period, args.num, args.interval)
 
         update_interval = convert_interval_to_seconds(args.update_interval)
