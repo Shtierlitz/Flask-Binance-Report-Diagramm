@@ -5,12 +5,10 @@ import argparse
 from peewee import SqliteDatabase
 import json  # Add this import
 
-try:
-    from project.models import OriginReport, data_base
-    from project.utils import convert_interval_to_seconds
-except ModuleNotFoundError:
-    from models import OriginReport, data_base
-    from utils import convert_interval_to_seconds
+
+from project.models import OriginReport, data_base
+from project.utils import convert_interval_to_seconds
+
 
 # API и секретный ключ
 api_key = os.environ.get("API_KEY")
@@ -35,13 +33,13 @@ def get_binance_bars(symbol, interval, start_date, end_date):
 
 
 def read_data_from_csv_and_save_to_db(symbol: str, interval: str, dir_path=None):
-    file_path = os.path.join(dir_path, 'data', f'{symbol}_{interval}.csv')
+    file_path = os.path.join(dir_path, 'project\\data', f'{symbol}_{interval}.csv')
     OriginReport.from_csv(file_path, symbol)
 
 
 def collect_data(period, num, interval):
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    data_path = os.path.join(dir_path, 'data')
+    data_path = os.path.join(dir_path, 'project\\data')
     start_date = f"{num} {period} ago UTC"
     end_date = "now UTC"
 
@@ -78,7 +76,7 @@ if __name__ == "__main__":
 
         update_interval = convert_interval_to_seconds(args.update_interval)
         # Save parameters to params.json
-        with open('params.json', 'w') as f:
+        with open('project/params.json', 'w') as f:
             json.dump({
                 'period': args.period,
                 'num': args.num,

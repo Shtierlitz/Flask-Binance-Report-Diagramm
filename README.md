@@ -22,9 +22,9 @@ git clone https://github.com/Shtierlitz/Flask-Binance-Report-Diagramm.git
 ### If you are going to modify the functionality so that it can perform commercial transactions, you will need to go through the authentication procedure, put some money into the account and generate your own API keys.
 
 ## Create Files 
-You will need to create `.env` file and place it in the root of the project.
+You will need to create `.env` file and place it in the root of the project near app.py.
 ```bash
-project/.env
+.env
 ```
 
 ### Required contents of the .env file:
@@ -60,7 +60,7 @@ pip install -r requirements.txt
 ```
 
 ## Run get_and_create_data.py
-Go to `project/` folder. You need to use argparse commands to initialize database and scv files.
+In the root of project you need to use argparse commands to initialize database and scv files.
 Example:
 ```bash
 python get_and_create_data.py --period "week" --num "1" --interval "4h" --update_interval "1h"
@@ -71,8 +71,8 @@ Where:
 --interval is pre-market period  
 --update_interval is how often information will be updated.  
 
-After the executed command, the `binance.db` file should appear in the `project/` folder 
-and .csv files should be generated in the date folder.
+After the executed command, the `binance.db` file should appear in the root folder 
+and .csv files should be generated in the `project/data` folder.
 
 ## Redis cli run on Windows
 Install Linux on Windows with WSL https://learn.microsoft.com/en-us/windows/wsl/install  
@@ -87,19 +87,23 @@ redis-cli
 Go to the root folder and run in new terminal:
 ```bash
 pip install eventlet  
-celery -A project.app.celery worker --loglevel=info -P eventlet
+celery -A app.celery worker --loglevel=info -P eventlet
 ```
 
 ## Celery beat
 Run in new terminal:
 ```bash
-celery -A project.app.celery beat --loglevel=info
+celery -A app.celery beat --loglevel=info
 ```
 
 ## Run app
-To run localhost server just open new terminal, get to the `project/` folder and then run the command:
+To run localhost server just open new terminal, get to the root folder and then run the command:
 ```bash
 flask run
+```
+Or you can use:
+```bash
+python app.py
 ```
 
 Now you should be able to see these pages:  

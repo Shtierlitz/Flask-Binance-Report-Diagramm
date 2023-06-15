@@ -18,7 +18,7 @@ def candlestick_diagram(file_name):
     if not os.path.exists(file_path):
         abort(500)
     fig = create_graph(file_path)
-    with open('params.json', 'r') as f:
+    with open('project/params.json', 'r') as f:
         params = json.load(f)
     interval_start = file_name[-2]
     interval_end = create_interval_ending(file_name)
@@ -38,7 +38,7 @@ def candlestick_diagram(file_name):
 def market_caps_diagram():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     fig = create_pie_chart(base_dir)
-    with open('params.json', 'r') as f:
+    with open('project/params.json', 'r') as f:
         params = json.load(f)
     interval_start = params['interval'][0]
     interval_end = create_interval_ending(params['interval'])
