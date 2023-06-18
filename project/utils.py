@@ -12,7 +12,7 @@ def create_pie_chart(dir_path):
     market_caps = []
 
     # Load parameters from file
-    with open('params.json', 'r') as f:
+    with open('project/params.json', 'r') as f:
         params = json.load(f)
 
     interval = params['interval']  # Get interval from params

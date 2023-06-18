@@ -10,7 +10,7 @@ from project.utils import convert_interval_to_seconds
 
 # API и секретный ключ
 api_key = os.environ.get("API_KEY")
-api_secret = os.environ.get("SECRET_KEY")
+api_secret = os.environ.get("API_SECRET_KEY")
 
 # клиент Binance
 client = Client(api_key, api_secret)

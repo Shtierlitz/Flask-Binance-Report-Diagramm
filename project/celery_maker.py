@@ -4,6 +4,7 @@ import os
 
 from celery import Celery
 from datetime import timedelta
+from project import tasks
 
 celery = Celery(__name__, broker='redis://localhost:6379/0', backend='redis://localhost:6379/0')
 
