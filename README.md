@@ -29,9 +29,9 @@ You will need to create `.env` file and place it in the root of the project near
 
 ### Required contents of the .env file:
 ```python
-SECRET_KEY='<your SECRET key>'  (necessary)
+SECRET_KEY='<app SECRET key>'  (necessary)
 API_KEY="<API_KEY>"  (not necessary)
-SECRET_KEY="<SECRET_KEY>"  (not necessary)
+API_SECRET_KEY="<API_SECRET_KEY>"  (not necessary)
 ```
 # WARNING!
 ## In no case do not add keys in any other place than .env and do not use where they can get into the public network. This can lead to hackers using your keys and being able to conduct any transactions on your account without your knowledge on your behalf.
